@@ -7,17 +7,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependencies and build outputs
+node_modules/
+dist/
+dist-ssr/
 *.local
 
+# Python virtual environment
+venv/
+__pycache__/
+
+# Environment variables
 .env
 
-# Editor directories and files
+# IDE / Editor specific files
 .vscode/*
-!.vscode/extensions.json
-.idea
+!.vscode/extensions.json  # Keep extensions.json for workspace recommendations
+.idea/
 .DS_Store
 *.suo
 *.ntvs*

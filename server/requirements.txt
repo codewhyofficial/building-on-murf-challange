@@ -12,4 +12,4 @@ langchain-google-genai
 langgraph
 
 # Vector Database Client
-pinecone-client
+pinecone
