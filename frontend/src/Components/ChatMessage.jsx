@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import { motion } from 'framer-motion';
 
 const Loader = () => (
     <div className="loader">
@@ -22,10 +23,14 @@ export function ChatMessage({ message, isLoading }) {
     };
 
     return (
-        // FIXED: Increased max-width for better readability of longer messages
-        <div className={`max-w-lg text-sm rounded-lg p-3 break-words ${isAgent ? 'bg-gray-200 self-start' : 'bg-gray-800 text-white self-end'}`}>
+        <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className={`max-w-xs sm:max-w-md text-sm rounded-lg p-3 break-words ${isAgent ? 'bg-gray-200 self-start' : 'bg-gray-800 text-white self-end'}`}
+        >
             {isAgent && !isLoading && <p className="font-semibold text-gray-800 mb-1">Agent</p>}
             {renderContent()}
-        </div>
+        </motion.div>
     );
 }

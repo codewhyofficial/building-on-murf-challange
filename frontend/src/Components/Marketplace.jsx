@@ -1,40 +1,59 @@
 import { ProductCard } from './ProductCard';
 import { Package } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-export function Marketplace({ products, selectedProducts, onSelectProduct, onCompare }) {
+export function Marketplace({ products, selectedProducts, onSelectProduct, onCompare, isMobile = false }) {
     const showCompareButton = selectedProducts.length > 1;
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
 
     return (
         <div>
-            <div className="flex justify-between items-center mb-6">
+            <div className={`flex mb-6 gap-4 ${isMobile ? 'flex-col items-center mt-12' : 'flex-row justify-between items-center'}`}>
                 <h2 className="text-xl font-semibold text-gray-800">Marketplace</h2>
                 {showCompareButton && (
-                    <button 
+                    <motion.button
                         onClick={onCompare}
-                        className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition"
+                        className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition w-full sm:w-auto"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
                     >
                         Compare Selected ({selectedProducts.length})
-                    </button>
+                    </motion.button>
                 )}
             </div>
 
             {products.length === 0 ? (
-                <div className="flex-1 flex flex-col items-center justify-center text-center p-8">
+                <div className="flex-1 flex flex-col items-center justify-center text-center p-8 mt-16">
                     <Package size={64} strokeWidth={1} className="text-gray-300 mb-4" />
                     <h2 className="text-2xl font-bold text-gray-800">Welcome to Agentive</h2>
                     <p className="mt-2 text-gray-500">Your AI-powered shopping assistant. Ask for a product to get started!</p>
                 </div>
             ) : (
-                <div className="w-full grid grid-cols-1 gap-6">
+                <motion.div
+                    className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
                     {products.map(p => (
-                        <ProductCard 
-                            key={p.ID} 
-                            product={p} 
+                        <ProductCard
+                            key={p.ID}
+                            product={p}
                             isSelected={selectedProducts.includes(p.ID)}
                             onSelect={onSelectProduct}
                         />
                     ))}
-                </div>
+                </motion.div>
             )}
         </div>
     );

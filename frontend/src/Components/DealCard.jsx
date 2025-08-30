@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export function DealCard({ deal }) {
     const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
@@ -10,7 +11,7 @@ export function DealCard({ deal }) {
             setTimeLeft(timeLeft - 1);
         }, 1000);
 
-        return () => clearInterval(timerId); // Cleanup on unmount
+        return () => clearInterval(timerId);
     }, [timeLeft]);
 
     const formatTime = (seconds) => {
@@ -26,15 +27,20 @@ export function DealCard({ deal }) {
     const isExpired = timeLeft === 0;
 
     return (
-        <div className="border border-gray-200 p-4 rounded-lg shadow-md bg-gradient-to-br from-gray-50 to-gray-100">
+        <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="border border-gray-200 p-4 rounded-lg shadow-md bg-gradient-to-br from-gray-50 to-gray-100"
+        >
             <div className="flex justify-between items-start">
                 <h3 className="font-bold text-lg text-gray-800">{deal.heading}</h3>
                 <div className={`text-sm font-medium px-2 py-1 rounded-md ${isExpired ? 'bg-gray-200 text-gray-600' : 'bg-red-100 text-red-700'}`}>
                     {isExpired ? 'Expired' : formatTime(timeLeft)}
                 </div>
             </div>
-            <div className="mt-4 flex items-center">
-                <div className="w-20 h-20 flex-shrink-0 bg-white rounded-md flex items-center justify-center mr-4 border">
+            <div className="mt-4 flex flex-col sm:flex-row items-center">
+                <div className="w-20 h-20 flex-shrink-0 bg-white rounded-md flex items-center justify-center mr-0 sm:mr-4 mb-4 sm:mb-0 border">
                     <img src={imageUrl} alt={product["Model Name"]} className="max-w-full max-h-full object-contain" />
                 </div>
                 <div>
@@ -45,6 +51,6 @@ export function DealCard({ deal }) {
                     </p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

@@ -4,7 +4,6 @@
 /* Apply base styles to the body */
 body {
   @apply bg-gray-100 text-gray-800 antialiased;
-  /* ADD THIS LINE to set Poppins as the default font */
   font-family: 'Poppins', sans-serif;
 }
 
@@ -54,4 +53,11 @@ body {
 }
 .message-text strong {
     @apply font-semibold;
+}
+
+
+.h-fill-available {
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
 }
