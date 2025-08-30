@@ -24,10 +24,12 @@ class SpecialDeal(BaseModel):
 class ChatRequest(BaseModel):
     user_message: str
     history: List[Dict[str, str]] = Field(default_factory=list)
+    language: str = Field(default="en-US")  # Language code
+    voice_id: Optional[str] = None  # Optional voice ID override
 
 class ChatResponse(BaseModel):
     text: str
-    audio_url: Optional[str] = None  # <-- ADD THIS LINE
+    audio_url: Optional[str] = None
     products: List[Product] = Field(default_factory=list)
     special_deal: Optional[SpecialDeal] = None
 
@@ -40,8 +42,9 @@ class FinalAnswer(BaseModel):
 
 class TTSRequest(BaseModel):
     text: str
-    voice_id: str | None = None   # optional override; else use env MURF_VOICE_ID
-    format: str | None = "MP3"    # MP3, WAV, FLAC, ALAW, ULAW, PCM, OGG
-    sample_rate: int | None = 44100
-    style: str | None = None      # e.g., "Conversational"
-    encode_as_base64: bool | None = False  # set True if you want audio in response
+    voice_id: Optional[str] = None   # optional override; else use env MURF_VOICE_ID
+    language: Optional[str] = None   # language code for voice selection
+    format: Optional[str] = "MP3"    # MP3, WAV, FLAC, ALAW, ULAW, PCM, OGG
+    sample_rate: Optional[int] = 44100
+    style: Optional[str] = None      # e.g., "Conversational"
+    encode_as_base64: Optional[bool] = False  # set True if you want audio in response

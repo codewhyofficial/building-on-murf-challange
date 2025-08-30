@@ -3,19 +3,23 @@ import { ChatHistory } from './ChatHistory';
 import { ChatInput } from './ChatInput';
 import { Square, Globe, Mic, MicOff, Send } from 'lucide-react';
 
-// Language options with their codes and display names
+// Language options with their codes, display names, and voice IDs
 const LANGUAGE_OPTIONS = [
-  { code: 'en-US', name: 'English' },
-  { code: 'es-ES', name: 'Spanish' },
-  { code: 'fr-FR', name: 'French' },
-  { code: 'de-DE', name: 'German' },
-  { code: 'it-IT', name: 'Italian' },
-  { code: 'pt-BR', name: 'Portuguese' },
-  { code: 'ja-JP', name: 'Japanese' },
-  { code: 'ko-KR', name: 'Korean' },
-  { code: 'zh-CN', name: 'Chinese' },
-  { code: 'hi-IN', name: 'Hindi' },
-  { code: 'ar-SA', name: 'Arabic' },
+  { code: 'en-US', name: 'English', voiceId: 'en-US-natalie' },
+  { code: 'en-UK', name: 'English (UK)', voiceId: 'en-UK-theo' },
+  { code: 'es-ES', name: 'Spanish', voiceId: 'es-ES-elvira' },
+  { code: 'fr-FR', name: 'French', voiceId: 'fr-FR-raphael' },
+  { code: 'de-DE', name: 'German', voiceId: 'de-DE-matthias' },
+  { code: 'it-IT', name: 'Italian', voiceId: 'it-IT-lucia' },
+  { code: 'pt-BR', name: 'Portuguese', voiceId: 'pt-BR-heitor' },
+  { code: 'ja-JP', name: 'Japanese', voiceId: 'ja-JP-kenji' },
+  { code: 'ko-KR', name: 'Korean', voiceId: 'ko-KR-gyeong' },
+  { code: 'zh-CN', name: 'Chinese', voiceId: 'zh-CN-tao' },
+  { code: 'hi-IN', name: 'Hindi', voiceId: 'hi-IN-kabir' },
+  { code: 'ta-IN', name: 'Tamil', voiceId: 'ta-IN-iniya' },
+  { code: 'bn-IN', name: 'Bengali', voiceId: 'bn-IN-anwesha' },
+  { code: 'pl-PL', name: 'Polish', voiceId: 'pl-PL-jacek' },
+  { code: 'ar-SA', name: 'Arabic', voiceId: 'ar-SA-hamed' },
 ];
 
 export function RightSidebar({ history, onSendMessage, isLoading, isSpeaking, onStopSpeech }) {
@@ -23,7 +27,8 @@ export function RightSidebar({ history, onSendMessage, isLoading, isSpeaking, on
   
   // Update the send message function to include language
   const handleSendMessage = (message) => {
-    onSendMessage(message, selectedLanguage);
+    const languageObj = LANGUAGE_OPTIONS.find(lang => lang.code === selectedLanguage);
+    onSendMessage(message, selectedLanguage, languageObj?.voiceId);
   };
 
   return (
@@ -89,7 +94,7 @@ function LanguageSelector({ selectedLanguage, onLanguageChange }) {
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 py-2 bg-white rounded-lg shadow-xl z-20">
+          <div className="absolute right-0 mt-2 w-60 py-2 bg-white rounded-lg shadow-xl z-20 max-h-80 overflow-y-auto">
             {LANGUAGE_OPTIONS.map((lang) => (
               <button
                 key={lang.code}
@@ -102,8 +107,10 @@ function LanguageSelector({ selectedLanguage, onLanguageChange }) {
                     ? 'bg-indigo-100 text-indigo-700' 
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
+                title={`Voice: ${lang.voiceId}`}
               >
-                {lang.name}
+                <div>{lang.name}</div>
+                <div className="text-xs text-gray-500">{lang.code}</div>
               </button>
             ))}
           </div>

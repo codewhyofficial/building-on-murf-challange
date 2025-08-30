@@ -23,6 +23,14 @@ PINECONE_API_KEY = get_env_variable("PINECONE_API_KEY")
 PINECONE_INDEX_NAME = get_env_variable("PINECONE_INDEX_NAME", "mobile-phones")
 PINECONE_EMBEDDING_DIMENSION = 768
 
-# --- LLM and Embeddings ---
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
-embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+# --- LLM and Embeddings - Use a model with better multilingual support ---
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash-thinking-exp",  # More capable model for multilingual
+    temperature=0.7,  # Slightly higher temperature for more creative responses
+    google_api_key=GOOGLE_API_KEY
+)
+
+embeddings_model = GoogleGenerativeAIEmbeddings(
+    model="models/embedding-001",
+    google_api_key=GOOGLE_API_KEY
+)
