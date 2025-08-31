@@ -41,38 +41,38 @@ def populate_pinecone_data():
             "ID": "mobile_13", "Allowed Discount": 11490, "Back Camera": "200MP + 12MP", "Capacity": 256,
             "Company Name": "Samsung", "Front Camera": "12MP", "Max Price": 114900, "Model Name": "Galaxy S24 Ultra",
             "Processor": "Exynos 2400", "Screen Size": "6.8 inches", "Text": "Best for: Power users, professionals, creatives, and tech enthusiasts. Ideal use cases: Advanced photography, AI-powered productivity, intense gaming, and seamless multitasking. The ultimate flagship experience.",
-            "battery": 5000, "ram": 12, "weight": 234, "image_url": "https://picsum.photos/seed/samsung_s24_ultra/800/600"
+            "battery": 5000, "ram": 12, "weight": 234, "image_url": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQjRC4B-YE6Tob3Wo6MyfNuGN_UD_hbiVjEtiuXOP8QD8wjMuwaacNFj-j8kczPFu5r5muYtCPj8uv8eofKdtRZVSduwkPJRCu4blgSnHlb3Au3M9ceKtu1"
         },
         {
             "ID": "mobile_12", "Allowed Discount": 10490, "Back Camera": "200MP + 12MP", "Capacity": 128,
             "Company Name": "Samsung", "Front Camera": "12MP", "Max Price": 104900, "Model Name": "Galaxy S24 Ultra",
             "Processor": "Exynos 2400", "Screen Size": "6.8 inches", "Text": "A great choice for users who want flagship features without needing maximum storage. Excellent for photography, productivity, and gaming.",
-            "battery": 5000, "ram": 12, "weight": 234, "image_url": "https://picsum.photos/seed/samsung_s24_ultra_black/800/600"
+            "battery": 5000, "ram": 12, "weight": 234, "image_url": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTXsIZMb8mqsC9gLv7NE1jxARGzcl5u-JVhSPLj-_NOneEKBc5pUYJS9bPNrQyo28FAQ4HDBcnn4ieAYqCQBmy_fp0txQfaHMNTpaRTUzw"
         },
         {
             "ID": "mobile_11", "Allowed Discount": 8990, "Back Camera": "50MP + 10MP + 12MP", "Capacity": 256,
             "Company Name": "Apple", "Front Camera": "12MP", "Max Price": 89900, "Model Name": "iPhone 15 Pro",
             "Processor": "A17 Bionic", "Screen Size": "6.1 inches", "Text": "Experience the cutting-edge technology of the iPhone 15 Pro. Perfect for photography, gaming, and everyday use with its powerful A17 Bionic chip.",
-            "battery": 3274, "ram": 8, "weight": 187, "image_url": "https://picsum.photos/seed/iphone_15_pro/800/600"
+            "battery": 3274, "ram": 8, "weight": 187, "image_url": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTmgrTk_YGyhmv076-ncdBE6mSC_Pps0NOZ5vogCvwmXD9SJ8Vtlfb1Yymsv5XsfNDCzfK3VD-mbbBykNGlLMgi-GsNDe6ArRVpBuaeEN7nyQwyqu1n_dSsBWU"
         },
         {
             "ID": "mobile_10", "Allowed Discount": 7990, "Back Camera": "50MP + 10MP + 12MP", "Capacity": 128,
             "Company Name": "Apple", "Front Camera": "12MP", "Max Price": 79900, "Model Name": "iPhone 15 Pro",
             "Processor": "A17 Bionic", "Screen Size": "6.1 inches", "Text": "The iPhone 15 Pro offers exceptional performance and a stunning camera system. Ideal for users who value premium design and seamless iOS experience.",
-            "battery": 3274, "ram": 8, "weight": 187, "image_url": "https://picsum.photos/seed/iphone_15_pro_blue/800/600"
+            "battery": 3274, "ram": 8, "weight": 187, "image_url": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSTf7pCJv_EprbPSkDZg83ozZRum63GCOxr7leiNbGZZkuqXY5B-ca2qRaXlcIyh35FcNKF3UibrZihj5kgqdXWEvTqstr_6w"
         },
         {
             "ID": "mobile_09", "Allowed Discount": 5990, "Back Camera": "50MP + 12MP", "Capacity": 128,
             "Company Name": "Google", "Front Camera": "10.8MP", "Max Price": 59900, "Model Name": "Pixel 8",
             "Processor": "Google Tensor G3", "Screen Size": "6.2 inches", "Text": "Discover the intelligence of Google Pixel 8. Featuring advanced AI capabilities, incredible camera, and a pure Android experience.",
-            "battery": 4575, "ram": 8, "weight": 187, "image_url": "https://picsum.photos/seed/google_pixel_8/800/600"
+            "battery": 4575, "ram": 8, "weight": 187, "image_url": "https://lh3.googleusercontent.com/0udrEfNYmIpHmSaNU6fWHp3S0YJ4faYdDghUveqZxK4CfJB54EqAuQhJ9KLzY8q0xtRIBFLAQNKPnongqMjW5ry9p4KMpE6Ay7c=s6000-w6000-e365-rw-v0-nu"
         },
         {
             "ID": "mobile_08", "Allowed Discount": 6990, "Back Camera": "50MP + 48MP + 12MP", "Capacity": 256,
             "Company Name": "Google", "Front Camera": "10.8MP", "Max Price": 69900, "Model Name": "Pixel 8 Pro",
             "Processor": "Google Tensor G3", "Screen Size": "6.7 inches", "Text": "The Pixel 8 Pro delivers the ultimate Google experience with its pro-level camera, powerful Tensor G3 chip, and stunning display.",
-            "battery": 5050, "ram": 12, "weight": 213, "image_url": "https://picsum.photos/seed/google_pixel_8_pro/800/600"
-        }
+            "battery": 5050, "ram": 12, "weight": 213, "image_url": "https://lh3.googleusercontent.com/Bk-0c89qThGdgx75jEyOMs-0fwHpyx--gs8a8dsuwFdxrl9pZXj-2V-0TDOBTdQc9kRYOq9TLojjVddEzzY25MQB3eQEIg3bAOo=s6000-w6000-e365-rw-v0-nu"
+        },
     ]
 
     vectors_to_upsert = []

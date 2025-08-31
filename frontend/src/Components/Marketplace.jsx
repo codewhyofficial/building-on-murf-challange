@@ -17,8 +17,10 @@ export function Marketplace({ products, selectedProducts, onSelectProduct, onCom
 
     return (
         <div>
-            <div className={`flex mb-6 gap-4 ${isMobile ? 'flex-col items-center mt-12' : 'flex-row justify-between items-center'}`}>
-                <h2 className="text-xl font-semibold text-gray-800">Marketplace</h2>
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+                
+                {!isMobile && <h2 className="text-xl font-semibold text-gray-800">Marketplace</h2>}
+                
                 {showCompareButton && (
                     <motion.button
                         onClick={onCompare}

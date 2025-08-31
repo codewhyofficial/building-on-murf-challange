@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Send, Mic, MicOff } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useSpeechToText } from '../hooks/useSpeechToText';
 
 export function ChatInput({ onSendMessage, disabled, selectedLanguage }) {
   const [input, setInput] = useState('');
-  const { 
-    isListening, 
-    transcript, 
-    startListening, 
-    stopListening, 
+  const {
+    isListening,
+    transcript,
+    startListening,
+    stopListening,
     resetTranscript,
-    isSpeechRecognitionSupported 
+    isSpeechRecognitionSupported
   } = useSpeechToText(selectedLanguage);
 
   useEffect(() => {
@@ -39,7 +40,6 @@ export function ChatInput({ onSendMessage, disabled, selectedLanguage }) {
   const handleInputChange = (e) => {
     const newValue = e.target.value;
     setInput(newValue);
-    // If the user clears the input manually, reset the hook's transcript
     if (newValue === '') {
       resetTranscript();
     }
@@ -58,14 +58,18 @@ export function ChatInput({ onSendMessage, disabled, selectedLanguage }) {
         />
         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center">
           {isSpeechRecognitionSupported && (
-            <button
+            <motion.button
               type="button"
               onClick={handleMicClick}
-              className={`p-2 rounded-full transition-colors text-gray-600 hover:bg-gray-200 ${isListening ? 'text-red-500' : ''}`}
+              className={`relative p-2 rounded-full transition-colors 
+              ${isListening ? 'text-white bg-green-600 shadow-lg shadow-red-400/50' : 'text-gray-600 hover:bg-gray-200'}`}
               disabled={disabled}
+              animate={isListening ? { scale: [1, 1.15, 1] } : { scale: 1 }}
+              transition={isListening ? { repeat: Infinity, duration: 1.2 } : {}}
             >
-              {isListening ? <MicOff size={18} /> : <Mic size={18} />}
-            </button>
+              {isListening ? <MicOff size={20} /> : <Mic size={20} />}
+            </motion.button>
+
           )}
           <button
             type="submit"

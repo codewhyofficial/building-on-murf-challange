@@ -30,15 +30,15 @@ export function RightSidebar({ history, onSendMessage, isLoading, isSpeaking, on
   };
 
   return (
-    <aside className={`w-full lg:w-[400px] flex-shrink-0 bg-white flex flex-col border-l border-gray-200 ${isMobileView ? 'h-fill-available pb-20 px-4' : 'h-full p-4'}`}>
-      <div className={`relative flex items-center mb-4 ${isMobileView ? 'justify-center mt-12' : 'justify-between'}`}>
-        <h2 className="text-lg font-semibold text-gray-800">Sales Assistant</h2>
-        <div className={isMobileView ? 'absolute right-0' : ''}>
-          <LanguageSelector
-            selectedLanguage={selectedLanguage}
-            onLanguageChange={setSelectedLanguage}
-          />
-        </div>
+    <aside className={`w-full lg:w-[400px] flex-shrink-0 bg-white flex flex-col border-l border-gray-200 ${isMobileView ? 'h-fill-available pb-20 p-4' : 'h-full p-4'}`}>
+      <div className={`flex items-center mb-4 ${isMobileView ? 'justify-end' : 'justify-between'}`}>
+        
+        {!isMobileView && <h2 className="text-lg font-semibold text-gray-800">Sales Assistant</h2>}
+        
+        <LanguageSelector
+          selectedLanguage={selectedLanguage}
+          onLanguageChange={setSelectedLanguage}
+        />
       </div>
 
       <ChatHistory history={history} isLoading={isLoading} />

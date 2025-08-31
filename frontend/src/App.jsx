@@ -117,15 +117,15 @@ function App() {
         case 'deals':
             return (
                 <div>
-                    <h2 className={`text-xl font-semibold text-gray-800 mb-6 ${isMobile ? 'text-center mt-12' : ''}`}>Active Deals</h2>
-                    {deal ? <DealCard deal={deal} /> : <p className="text-gray-500">No active deals right now.</p>}
+                    <h2 className="text-xl font-semibold text-gray-800 mb-6 hidden md:block">Active Deals</h2>
+                    {deal ? <DealCard deal={deal} /> : <p className="text-gray-500 pt-10">No active deals right now.</p>}
                 </div>
             );
         case 'history':
              return (
                 <div>
-                    <h2 className={`text-xl font-semibold text-gray-800 mb-6 ${isMobile ? 'text-center mt-12' : ''}`}>Full Conversation</h2>
-                    <p className="text-gray-500">Chat history is visible on the right sidebar.</p>
+                    <h2 className="text-xl font-semibold text-gray-800 mb-6 hidden md:block">Full Conversation</h2>
+                    <p className="text-gray-500 pt-10">Chat history is visible on the right sidebar.</p>
                 </div>
             );
         default:
@@ -187,7 +187,7 @@ function App() {
                 animate="center"
                 exit="exit"
                 transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-                className="px-4 pb-20 overflow-y-auto bg-gray-50 h-full"
+                className="p-4 pt-6 pb-20 overflow-y-auto bg-gray-50 h-full"
               >
                 {renderActivePageComponent(true)}
               </motion.main>
