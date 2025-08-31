@@ -17,6 +17,7 @@ A sophisticated AI-powered multilingual voice assistant for mobile phone sales, 
 - **Browser-based voice recognition**
 
 ### 🌍 Multilingual Support
+- **English (Default)**
 - **Hindi (हिंदी)** - hi-IN-kabir voice
 - **Korean (한국어)** - ko-KR-gyeong voice  
 - **Japanese (日本語)** - ja-JP-kenji voice
