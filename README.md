@@ -35,6 +35,7 @@ A sophisticated AI-powered multilingual voice assistant for mobile phone sales, 
 - **Intelligent product recommendations**
 - **Dynamic discount generation**
 - **Visual product displays** with images
+- **Advanced negotiation capabilities** that create personalized shopping experiences
 
 ## 🙏 Acknowledgments
 
@@ -99,3 +100,36 @@ pip install -r requirements.txt
 cd ../frontend
 npm install
 ```
+## Project Structure
+```
+multilingual-voice-assistant/
+├── backend/                    # FastAPI Backend Application
+│   ├── agent.py               # AI Agent Workflows
+│   ├── tools.py                 # LangChain Tools
+│   ├── vector_store.py          # Pinecone Integration
+│   ├── schemas.py               # Pydantic Models
+│   ├── main.py                # FastAPI Application Entry Point
+│   ├── config.py              # Configuration Settings
+│   ├── requirements.txt       # Python Dependencies
+│   └── .env                   # Environment Variables
+│
+├── frontend/                  # React Frontend Application
+│   ├── src/
+│   │   ├── components/        # React Components
+│   │   ├── hooks/             # Custom React Hooks
+│   │   ├── utils/             # Utility Functions
+│   │   ├── App.jsx            # Main App Component
+│   │   └── main.jsx           # Application Entry Point
+│   ├── package.json
+│   ├── vite.config.js
+│   └── index.html
+│
+├── data/                      # Sample Data Files
+├── .gitignore
+├── Dockerfile
+├── docker-compose.yml
+└── README.md
+```
+
+## 🤝 Contributing
+We welcome contributions from the community! Whether you're fixing bugs, adding new features, or improving documentation, your help is appreciated.
